@@ -6,16 +6,14 @@ class App extends React.Component {
     foo: 3,
     bar: 10
   };
-  constructor(props){
-    super(props);
-    this.doStuff = this.doStuff.bind(this);
-  }
 
   doStuff = () => {
-    this.setState({ foo: this.state.foo + 1 });
-    if (this.state.foo > 6) {
-      this.setState({ bar: 20 });
-    }
+    this.setState({ foo: this.state.foo + 1 }, () => {
+      if (this.state.foo > 6) {
+        this.setState({ bar: 20 });
+      }     
+    });
+
   };
 
   render() {
